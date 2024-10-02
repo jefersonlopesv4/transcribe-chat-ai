@@ -232,6 +232,7 @@ sh destroy.sh
 ### Configuração do AWS Bedrock
 
 1. Acesse o console AWS Bedrock
+
 ![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/console-bedrock.png)
 
 2. Navegue até Bedrock Configurations, Model Access e clique em Modify model access
@@ -243,7 +244,9 @@ sh destroy.sh
 
 ### Configuração Base de Conhecimento Bedrock
 1. Acesse o console AWS Bedrock
+
 ![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/console-bedrock.png)
+
 2. Navegue até o Knowledge bases e clique em Create knowledge base![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/base-conhecimento.png)
 3. Preencha os detalhes da base de conhecimento![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/base-conhecimento-detalhes.png)
 4. Preencha os dados de Data Source, selecione o bucket da base de conhecimento
