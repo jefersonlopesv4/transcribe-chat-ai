@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  flowise:
+    image: flowiseai/flowise:latest
+    ports:
+      - "3030:3030"
+    volumes:
+      - ~/.flowise:/root/.flowise
+    environment:
+      - PORT=3030
+      - EXECUTION_MODE=main
+      - DEBUG=true
+    restart: unless-stopped
+
+volumes:
+  flowise-data:

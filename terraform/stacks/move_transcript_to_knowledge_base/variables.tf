@@ -1,0 +1,3 @@
+variable "ENVIRONMENT" {
+  type = string
+}
