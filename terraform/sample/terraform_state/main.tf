@@ -10,8 +10,8 @@ terraform {
 
 locals {
   environment  = "development"
-  stack        = "sample-chatia"
-  account_name = "sample-chatia"
+  stack        = "sample-chat-ai"
+  account_name = "sample-chat-ai"
   default_tags = {
     terraform   = "true"
     environment = local.environment

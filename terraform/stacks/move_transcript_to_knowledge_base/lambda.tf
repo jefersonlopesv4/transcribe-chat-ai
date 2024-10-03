@@ -125,7 +125,6 @@ resource "aws_sns_topic" "transcribe_notifications" {
   name = "${local.environment}-transcribe-to-knowledg-base-notifications"
 }
 
-resource "aws_s3_bucket" "chatia_bucket" {
+resource "aws_s3_bucket" "chat-ai_bucket" {
   bucket = "${local.environment}-knowledge-base-bucket-chat-ai"
-  force_destroy = true
 }

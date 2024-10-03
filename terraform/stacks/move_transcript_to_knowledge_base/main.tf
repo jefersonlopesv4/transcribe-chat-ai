@@ -14,7 +14,7 @@ terraform {
 locals {
   environment           = var.ENVIRONMENT
   stack                 = "Trasncript To Knowledge base"
-  account_name          = "sample-chatia"
+  account_name          = "sample-chat-ai"
   source_file           = "src/lambda_function.py"
   function_name         = "${local.environment}_transcribe_to_knowledge_base"
   function_description  = "Processamento dos arquivos e transcrição de gravações para base de conhecimento do Bedrock."
@@ -29,10 +29,10 @@ locals {
   }
 
   default_tags = {
-    terraform     = "true"
-    environment   = local.environment
-    stack         = local.stack
-    account_name  = local.account_name
+    terraform    = "true"
+    environment  = local.environment
+    stack        = local.stack
+    account_name = local.account_name
   }
 }
 

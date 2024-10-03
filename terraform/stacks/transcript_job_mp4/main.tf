@@ -14,9 +14,9 @@ terraform {
 }
 
 locals {
-  environment   = var.ENVIRONMENT
-  stack         = "Trasncript Job MP4"
-  account_name  = "sample-chatia"
+  environment           = var.ENVIRONMENT
+  stack                 = "Trasncript Job MP4"
+  account_name          = "sample-chat-ai"
   source_file           = "src/lambda_function.py"
   function_name         = "${local.environment}_transcribe_job_mp4_lambda"
   function_description  = "Processamento de transcrição de video para texto."
@@ -27,10 +27,10 @@ locals {
   log_retention_in_days = 1
   enable_lambda_version = true
   default_tags = {
-    terraform     = "true"
-    environment   = local.environment
-    stack         = local.stack
-    account_name  = local.account_name
+    terraform    = "true"
+    environment  = local.environment
+    stack        = local.stack
+    account_name = local.account_name
   }
 }
 

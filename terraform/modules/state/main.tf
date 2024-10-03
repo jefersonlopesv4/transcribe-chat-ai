@@ -10,8 +10,7 @@ resource "aws_kms_alias" "key-alias" {
 }
 
 resource "aws_s3_bucket" "terraform_state" {
-  bucket        = "${var.name}-${var.environment}-terraform-up-and-running-state"
-  force_destroy = true
+  bucket = "${var.name}-${var.environment}-terraform-up-and-running-state"
 }
 
 resource "aws_s3_bucket_server_side_encryption_configuration" "encryption" {
@@ -33,8 +32,9 @@ resource "aws_s3_bucket_public_access_block" "block" {
 }
 
 resource "aws_s3_bucket_acl" "terraform_state_acl" {
-  bucket = aws_s3_bucket.terraform_state.id
-  acl    = "private"
+  bucket     = aws_s3_bucket.terraform_state.id
+  acl        = "private"
+  depends_on = [aws_s3_bucket.terraform_state]
 }
 
 resource "aws_s3_bucket_ownership_controls" "this" {
