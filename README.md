@@ -27,7 +27,7 @@ Este projeto foca na transcrição de vídeos e criação de um chatbot IA utili
 
 ### Diagrama do projeto
 
-![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/transcribe-chat-ia.drawio-2.png)
+![Console Bedrock](docs/Base-de-conhecimento/transcribe-chat-ia.drawio.png)
 
 ### Fluxo de dados
 
@@ -143,67 +143,68 @@ sh destroy.sh
 ### Configuração do AWS Bedrock
 
 1. Acesse o console AWS Bedrock                              
-   ![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/console-bedrock.png)
+   ![Console Bedrock](docs/Base-de-conhecimento/Base-conhecimento-1.png)
 
 2. Navegue até Bedrock Configurations, Model Access e clique em Modify model access ou Enable specific models
-   ![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/bedrock-configurations.png)
+   ![Console Bedrock](docs/Base-de-conhecimento/Base-conhecimento-2.png)
 
 3. Faça o Request access dos modelos Titan Text Embeddings V2 e Claude 3 Haiku, preencha os dados que forem requeridos                            
-   ![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/edit-model-access.png)
-   ![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/request-model.png)
+   ![Console Bedrock](docs/Base-de-conhecimento/Base-conhecimento-3.png)
+   ![Console Bedrock](docs/Base-de-conhecimento/Base-conhecimento-4.png)
 
 4. Realize o submit
 
 ### Configuração Base de Conhecimento Bedrock
 
 1. Acesse o console AWS Bedrock                                      
-   ![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/console-bedrock.png)
+   ![Console Bedrock](docs/Base-de-conhecimento/Base-conhecimento-1.png)
 2. Navegue até o Knowledge bases e clique em Create knowledge base
-![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/base-conhecimento.png)
-3. Preencha os detalhes da base de conhecimento![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/base-conhecimento-detalhes.png)
+![Console Bedrock](docs/Base-de-conhecimento/Base-conhecimento-5.png)
+3. Preencha os detalhes da base de conhecimento
+![Console Bedrock](docs/Base-de-conhecimento/Base-conhecimento-6.png)
 4. Preencha os dados de Data Source, selecione o bucket da base de conhecimento
-   ![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/base-conhecimento-data-source.png)
+   ![Console Bedrock](docs/Base-de-conhecimento/Base-conhecimento-7.png)
 5. Selecione o Embedding model, no caso o Titan Text Embeddings v2 e depois em next
-   ![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/base-conhecimento-embedding.png)
+   ![Console Bedrock](docs/Base-de-conhecimento/Base-conhecimento-8.png)
 6. Faça o submit e pronto, a base de conhecimento foi criada
 7. Acesse o console AWS S3  
-![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/S3-1.png)
+![Console Bedrock](docs/S3/S3-1.png)
 8. Acesse o bucket development-transcribe-job-mp4-video-bucket
-![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/S3-2.png)
+![Console Bedrock](docs/S3/S3-2.png)
 9. Clique em upload     
-![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/S3-3.png)
+![Console Bedrock](docs/S3/S3-3.png)
 10. Envie os arquivos de video que você usará, clique em upload e os lambdas automaticamente irão realizar a transcrição do video e salvar no bucket da base de conhecimento do bedrock
-![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/S3-4.png)
+![Console Bedrock](docs/S3/S3-4.png)
 11. Acesse novamente o console AWS Bedrock
 12. Navegue até Knowledge bases e selecione a base de conhecimento criada
-![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/S3-5.png)
+![Console Bedrock](docs/S3/S3-5.png)
 13. Selecione o Data Source e clique em Sync
-![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/S3-6.png)
+![Console Bedrock](docs/S3/S3-6.png)
 
 ### Configuração do Flowise
 
 #### Criação de IAM
 1. Acesse o console AWS IAM     
-![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/IAM-1.png)
+![Console Bedrock](docs/Flowise/IAM-1.png)
 2. Clique na área marcada           
-![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/IAM-2.png)
+![Console Bedrock](docs/Flowise/IAM-2.png)
 3. Clique em Create user    
-![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/IAM-3.png)
+![Console Bedrock](docs/Flowise/IAM-3.png)
 4. Preencha os detalhes do usuário e clique em next
-![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/IAM-4.png)
+![Console Bedrock](docs/Flowise/IAM-4.png)
 5. Selecione a opção Attach policies directly e selecione a police "AdministratorAccess" e clique em next  
 *Obs: Utilize essa police somente em ambiente de testes*
-![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/IAM-5.png)
+![Console Bedrock](docs/Flowise/IAM-5.png)
 6. Realize a criação do usuario
-![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/IAM-6.png)
+![Console Bedrock](docs/Flowise/IAM-6.png)
 7. Após criar o usuario, clique nele e depois clique em "Create access key"
-![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/IAM-7.png)
+![Console Bedrock](docs/Flowise/IAM-7.png)
 8. Preencha da seguinte forma e clique em next
-![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/IAM-8.png)
+![Console Bedrock](docs/Flowise/IAM-8.png)
 9. Preencha os dados restantes e clique em Create access key
-![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/IAM-9.png)
+![Console Bedrock](docs/Flowise/IAM-9.png)
 10. Faça o download do CSV através de "Download .csv file" ou anote os dados de Access key e Secret access key
-![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/IAM-10.png)
+![Console Bedrock](docs/Flowise/IAM-10.png)
 
 #### Configuração do Chatflow
 1. Navegue até o diretorio do Flowise               
@@ -219,23 +220,23 @@ docker compose up
 http://localhost:3030/
 ```
 5. Navegue até Credentials e clique em Add Credential
-![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/Flowise-1.png)
+![Console Bedrock](docs/Flowise/Flowise-1.png)
 6. No nosso caso, selecione AWS security credentials
-![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/Flowise-2.png)
+![Console Bedrock](docs/Flowise/Flowise-2.png)
 7. Preencha os dados com o Access Key e Secret Access Key que geramos
-![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/Flowise-3.png)
+![Console Bedrock](docs/Flowise/Flowise-3.png)
 8. Navegue até Chatflows e clique em Add New
-![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/Flowise-4.png)
+![Console Bedrock](docs/Flowise/Flowise-4.png)
 9. No icone arredondado de "+" pesquise por todos os componentes que adicionamos (AWS ChatBedrock, AWS Bedrock Knowledge Base Retriever, Buffer Memory, Conversational Retrieval QA Chain)
-![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/Flowise-5.png)
+![Console Bedrock](docs/Flowise/Flowise-5.png)
 10. Realize a conexão dos componentes com o Conversational Retrieval QA Chain
-![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/Flowise-6.png)
+![Console Bedrock](docs/Flowise/Flowise-6.png)
 11. Clique no ícone de salvar e salve o Chatflow
-![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/Flowise-7.png)
+![Console Bedrock](docs/Flowise/Flowise-7.png)
 12. Após isso, clique no icone "</>" e anote o valor de chatflowid
-![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/Flowise-8.png)
+![Console Bedrock](docs/Flowise/Flowise-8.png)
 13. Navegue até o arquivo chamado page.tsx na pasta frontend\src\app e modifique o chatflowid para o que foi anotado e salve
-![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/Flowise-9.png)
+![Console Bedrock](docs/Flowise/Flowise-9.png)
 14. Rode o seguinte comando para iniciar o frontend
 ```
 npm run dev
@@ -245,7 +246,7 @@ npm run dev
 http://localhost:3000/
 ```
 16. Pronto, você consegue realizar perguntas para o chat
-![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/Flowise-11.png)
+![Console Bedrock](docs/Flowise/Flowise-11.png)
 
 
 
