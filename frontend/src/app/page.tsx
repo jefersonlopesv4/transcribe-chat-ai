@@ -4,13 +4,12 @@ import { FullPageChat } from "flowise-embed-react";
 export default function Home() {
   return (
     <FullPageChat
-      chatflowid="7e409d8b-b5f6-4bd4-9e4a-9ce57b0e0e6e"
+      chatflowid=""
       apiHost="http://localhost:3030"
-      // @ts-ignore
       theme={{
         chatWindow: {
           showTitle: true,
-          title: "V4 Recrutamento e Seleção",
+          title: "Demo - Chat AI",
           showAgentMessages: false,
           welcomeMessage: `Olá! Como posso te ajudar hoje?`,
           errorMessage: "Ocorreu um erro. Por favor, tente novamente.",
