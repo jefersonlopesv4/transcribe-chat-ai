@@ -32,11 +32,13 @@ resource "aws_cloudwatch_log_group" "this" {
 # Bucket S3 de origem (para vídeos)
 resource "aws_s3_bucket" "video_bucket" {
   bucket = "${local.environment}-transcribe-job-mp4-video-bucket"
+  force_destroy = true
 }
 
 # Bucket S3 de destino (para transcrições)
 resource "aws_s3_bucket" "transcript_bucket" {
   bucket = "${local.environment}-transcribe-job-mp4-transcriptions-bucket"
+  force_destroy = true
 }
 
 # Política IAM para o Lambda
