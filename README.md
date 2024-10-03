@@ -27,7 +27,7 @@ Este projeto foca na transcrição de vídeos e criação de um chatbot IA utili
 
 ### Diagrama do projeto
 
-![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/transcribe-chat-ia.drawio.png)
+![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/transcribe-chat-ia.drawio-2.png)
 
 ### Fluxo de dados
 
