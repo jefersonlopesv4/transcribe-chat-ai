@@ -104,11 +104,12 @@
 <li class="has-line-data" data-line-start="97" data-line-end="99">Clone o repositório:</li>
 </ol>
 <pre><code class="has-line-data" data-line-start="100" data-line-end="106">
-git clone https://github.com/jefersonlopesv4/transcribe-chat-ia.git
+git clone https://github.com/jefersonlopesv4/transcribe-chat-ai.git
 
-cd transcribe-chat-ia
+cd transcribe-chat-ai
 
 </code></pre>
+
 <ol start="2">
 <li class="has-line-data" data-line-start="109" data-line-end="111">Configure as credenciais AWS:</li>
 </ol>
@@ -116,6 +117,7 @@ cd transcribe-chat-ia
 aws configure
 
 </code></pre>
+
 <ol start="3">
 <li class="has-line-data" data-line-start="119" data-line-end="121">Instale as dependências do projeto front-end:</li>
 </ol>
@@ -125,6 +127,7 @@ cd frontend
 npm install
 
 </code></pre>
+
 <h2 class="code-line" data-line-start=131 data-line-end=132 ><a id="4_Infraestrutura_como_Cdigo_com_Terraform_131"></a>4. Infraestrutura como Código com Terraform</h2>
 <h3 class="code-line" data-line-start=133 data-line-end=134 ><a id="Estrutura_do_Cdigo_Terraform_133"></a>Estrutura do Código Terraform</h3>
 <pre><code class="has-line-data" data-line-start="136" data-line-end="164">
@@ -155,6 +158,7 @@ terraform/
 └── transcript_job_mp4/
 
 </code></pre>
+
 <h3 class="code-line" data-line-start=167 data-line-end=168 ><a id="Implantao_da_Infraestrutura_167"></a>Implantação da Infraestrutura</h3>
 <ol>
 <li class="has-line-data" data-line-start="169" data-line-end="171">Navegue até o diretório do Terraform state:</li>
@@ -163,6 +167,7 @@ terraform/
 cd terraform/sample/terraform_state
 
 </code></pre>
+
 <ol start="2">
 <li class="has-line-data" data-line-start="179" data-line-end="181">Inicialize o Terraform:</li>
 </ol>
@@ -170,6 +175,7 @@ cd terraform/sample/terraform_state
 terraform init
 
 </code></pre>
+
 <ol start="3">
 <li class="has-line-data" data-line-start="189" data-line-end="191">Revise o plano de execução:</li>
 </ol>
@@ -177,6 +183,7 @@ terraform init
 terraform plan
 
 </code></pre>
+
 <ol start="4">
 <li class="has-line-data" data-line-start="199" data-line-end="201">Aplique as mudanças:</li>
 </ol>
@@ -184,6 +191,7 @@ terraform plan
 terraform apply
 
 </code></pre>
+
 <ol start="5">
 <li class="has-line-data" data-line-start="207" data-line-end="209">Navegue até o diretório sample:</li>
 </ol>
@@ -191,6 +199,7 @@ terraform apply
 cd ..
 
 </code></pre>
+
 <ol start="6">
 <li class="has-line-data" data-line-start="215" data-line-end="217">Rode o Shell Script para realizar o deploy:</li>
 </ol>
@@ -198,6 +207,7 @@ cd ..
 sh deploy.sh
 
 </code></pre>
+
 <ol start="7">
 <li class="has-line-data" data-line-start="223" data-line-end="225">Após os testes, rode o Shell Script para destruir:</li>
 </ol>
@@ -205,6 +215,7 @@ sh deploy.sh
 sh destroy.sh
 
 </code></pre>
+
 <h3 class="code-line" data-line-start=231 data-line-end=232 ><a id="Configurao_do_AWS_Bedrock_231"></a>Configuração do AWS Bedrock</h3>
 <ol>
 <li class="has-line-data" data-line-start="233" data-line-end="236">

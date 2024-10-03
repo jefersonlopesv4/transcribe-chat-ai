@@ -126,5 +126,5 @@ resource "aws_sns_topic" "transcribe_notifications" {
 }
 
 resource "aws_s3_bucket" "chatia_bucket" {
-  bucket = "${local.environment}-knowledge-base-bucket-chat-ia"
+  bucket = "${local.environment}-knowledge-base-bucket-chat-ai"
 }
