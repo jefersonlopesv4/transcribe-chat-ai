@@ -148,7 +148,7 @@ sh destroy.sh
 2. Navegue até Bedrock Configurations, Model Access e clique em Modify model access ou Enable specific models
    ![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/bedrock-configurations.png)
 
-3. Faça o Request access dos modelos Titan Text Embeddings V2 e Claude 3 Haiku, preencha os dados que forem requeridos
+3. Faça o Request access dos modelos Titan Text Embeddings V2 e Claude 3 Haiku, preencha os dados que forem requeridos                            
    ![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/edit-model-access.png)
    ![Console Bedrock](https://sample-transcribe-chat-ia.s3.amazonaws.com/request-model.png)
 
