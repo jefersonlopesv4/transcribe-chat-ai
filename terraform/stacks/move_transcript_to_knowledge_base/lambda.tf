@@ -124,3 +124,7 @@ resource "aws_lambda_permission" "allow_bucket" {
 resource "aws_sns_topic" "transcribe_notifications" {
   name = "${local.environment}-transcribe-to-knowledg-base-notifications"
 }
+
+resource "aws_s3_bucket" "chatia_bucket" {
+  bucket = "${local.environment}-knowledge-base-bucket-chat-ia"
+}

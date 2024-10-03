@@ -1,0 +1,463 @@
+{
+  "nodes": [
+    {
+      "id": "awsBedrockKBRetriever_0",
+      "position": {
+        "x": -73.65598659494057,
+        "y": 431.19071314257985
+      },
+      "type": "customNode",
+      "data": {
+        "id": "awsBedrockKBRetriever_0",
+        "label": "AWS Bedrock Knowledge Base Retriever",
+        "version": 1,
+        "name": "awsBedrockKBRetriever",
+        "type": "AWSBedrockKBRetriever",
+        "baseClasses": [
+          "AWSBedrockKBRetriever",
+          "BaseRetriever"
+        ],
+        "category": "Retrievers",
+        "description": "Connect to AWS Bedrock Knowledge Base API and retrieve relevant chunks",
+        "inputParams": [
+          {
+            "label": "AWS Credential",
+            "name": "credential",
+            "type": "credential",
+            "credentialNames": [
+              "awsApi"
+            ],
+            "optional": true,
+            "id": "awsBedrockKBRetriever_0-input-credential-credential"
+          },
+          {
+            "label": "Region",
+            "name": "region",
+            "type": "asyncOptions",
+            "loadMethod": "listRegions",
+            "default": "us-east-1",
+            "id": "awsBedrockKBRetriever_0-input-region-asyncOptions"
+          },
+          {
+            "label": "Knowledge Base ID",
+            "name": "knoledgeBaseID",
+            "type": "string",
+            "id": "awsBedrockKBRetriever_0-input-knoledgeBaseID-string"
+          },
+          {
+            "label": "Query",
+            "name": "query",
+            "type": "string",
+            "description": "Query to retrieve documents from retriever. If not specified, user question will be used",
+            "optional": true,
+            "acceptVariable": true,
+            "id": "awsBedrockKBRetriever_0-input-query-string"
+          },
+          {
+            "label": "TopK",
+            "name": "topK",
+            "type": "number",
+            "description": "Number of chunks to retrieve",
+            "optional": true,
+            "additionalParams": true,
+            "default": 5,
+            "id": "awsBedrockKBRetriever_0-input-topK-number"
+          },
+          {
+            "label": "SearchType",
+            "name": "searchType",
+            "type": "options",
+            "description": "Knowledge Base search type. Possible values are HYBRID and SEMANTIC. If not specified, default will be used. Consult AWS documentation for more",
+            "options": [
+              {
+                "label": "HYBRID",
+                "name": "HYBRID",
+                "description": "Hybrid seach type"
+              },
+              {
+                "label": "SEMANTIC",
+                "name": "SEMANTIC",
+                "description": "Semantic seach type"
+              }
+            ],
+            "optional": true,
+            "additionalParams": true,
+            "id": "awsBedrockKBRetriever_0-input-searchType-options"
+          },
+          {
+            "label": "Filter",
+            "name": "filter",
+            "type": "string",
+            "description": "Knowledge Base retrieval filter. Read documentation for filter syntax",
+            "optional": true,
+            "additionalParams": true,
+            "id": "awsBedrockKBRetriever_0-input-filter-string"
+          }
+        ],
+        "inputAnchors": [],
+        "inputs": {
+          "region": "us-east-1",
+          "knoledgeBaseID": "JFLKBAU2UY",
+          "query": "",
+          "topK": 5,
+          "searchType": "HYBRID",
+          "filter": ""
+        },
+        "outputAnchors": [
+          {
+            "id": "awsBedrockKBRetriever_0-output-awsBedrockKBRetriever-AWSBedrockKBRetriever|BaseRetriever",
+            "name": "awsBedrockKBRetriever",
+            "label": "AWSBedrockKBRetriever",
+            "description": "Connect to AWS Bedrock Knowledge Base API and retrieve relevant chunks",
+            "type": "AWSBedrockKBRetriever | BaseRetriever"
+          }
+        ],
+        "outputs": {},
+        "selected": false
+      },
+      "width": 300,
+      "height": 622,
+      "positionAbsolute": {
+        "x": -73.65598659494057,
+        "y": 431.19071314257985
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "awsChatBedrock_0",
+      "position": {
+        "x": 351.806437867316,
+        "y": -237.85859269254058
+      },
+      "type": "customNode",
+      "data": {
+        "id": "awsChatBedrock_0",
+        "label": "AWS ChatBedrock",
+        "version": 5,
+        "name": "awsChatBedrock",
+        "type": "AWSChatBedrock",
+        "baseClasses": [
+          "AWSChatBedrock",
+          "BedrockChat",
+          "BedrockChat",
+          "BaseChatModel",
+          "BaseLanguageModel",
+          "Runnable"
+        ],
+        "category": "Chat Models",
+        "description": "Wrapper around AWS Bedrock large language models that use the Chat endpoint",
+        "inputParams": [
+          {
+            "label": "AWS Credential",
+            "name": "credential",
+            "type": "credential",
+            "credentialNames": [
+              "awsApi"
+            ],
+            "optional": true,
+            "id": "awsChatBedrock_0-input-credential-credential"
+          },
+          {
+            "label": "Region",
+            "name": "region",
+            "type": "asyncOptions",
+            "loadMethod": "listRegions",
+            "default": "us-east-1",
+            "id": "awsChatBedrock_0-input-region-asyncOptions"
+          },
+          {
+            "label": "Model Name",
+            "name": "model",
+            "type": "asyncOptions",
+            "loadMethod": "listModels",
+            "default": "anthropic.claude-3-haiku",
+            "id": "awsChatBedrock_0-input-model-asyncOptions"
+          },
+          {
+            "label": "Custom Model Name",
+            "name": "customModel",
+            "description": "If provided, will override model selected from Model Name option",
+            "type": "string",
+            "optional": true,
+            "id": "awsChatBedrock_0-input-customModel-string"
+          },
+          {
+            "label": "Temperature",
+            "name": "temperature",
+            "type": "number",
+            "step": 0.1,
+            "description": "Temperature parameter may not apply to certain model. Please check available model parameters",
+            "optional": true,
+            "additionalParams": true,
+            "default": 0.7,
+            "id": "awsChatBedrock_0-input-temperature-number"
+          },
+          {
+            "label": "Max Tokens to Sample",
+            "name": "max_tokens_to_sample",
+            "type": "number",
+            "step": 10,
+            "description": "Max Tokens parameter may not apply to certain model. Please check available model parameters",
+            "optional": true,
+            "additionalParams": true,
+            "default": 200,
+            "id": "awsChatBedrock_0-input-max_tokens_to_sample-number"
+          },
+          {
+            "label": "Allow Image Uploads",
+            "name": "allowImageUploads",
+            "type": "boolean",
+            "description": "Only works with claude-3-* models when image is being uploaded from chat. Compatible with LLMChain, Conversation Chain, ReAct Agent, Conversational Agent, Tool Agent",
+            "default": false,
+            "optional": true,
+            "id": "awsChatBedrock_0-input-allowImageUploads-boolean"
+          }
+        ],
+        "inputAnchors": [
+          {
+            "label": "Cache",
+            "name": "cache",
+            "type": "BaseCache",
+            "optional": true,
+            "id": "awsChatBedrock_0-input-cache-BaseCache"
+          }
+        ],
+        "inputs": {
+          "cache": "",
+          "region": "us-east-1",
+          "model": "anthropic.claude-3-haiku-20240307-v1:0",
+          "customModel": "",
+          "temperature": "1",
+          "max_tokens_to_sample": "20000",
+          "allowImageUploads": ""
+        },
+        "outputAnchors": [
+          {
+            "id": "awsChatBedrock_0-output-awsChatBedrock-AWSChatBedrock|BedrockChat|BedrockChat|BaseChatModel|BaseLanguageModel|Runnable",
+            "name": "awsChatBedrock",
+            "label": "AWSChatBedrock",
+            "description": "Wrapper around AWS Bedrock large language models that use the Chat endpoint",
+            "type": "AWSChatBedrock | BedrockChat | BedrockChat | BaseChatModel | BaseLanguageModel | Runnable"
+          }
+        ],
+        "outputs": {},
+        "selected": false
+      },
+      "width": 300,
+      "height": 766,
+      "selected": false,
+      "dragging": false,
+      "positionAbsolute": {
+        "x": 351.806437867316,
+        "y": -237.85859269254058
+      }
+    },
+    {
+      "id": "conversationalRetrievalQAChain_0",
+      "position": {
+        "x": 859.8917386494259,
+        "y": 497.5288536977462
+      },
+      "type": "customNode",
+      "data": {
+        "id": "conversationalRetrievalQAChain_0",
+        "label": "Conversational Retrieval QA Chain",
+        "version": 3,
+        "name": "conversationalRetrievalQAChain",
+        "type": "ConversationalRetrievalQAChain",
+        "baseClasses": [
+          "ConversationalRetrievalQAChain",
+          "BaseChain",
+          "Runnable"
+        ],
+        "category": "Chains",
+        "description": "Document QA - built on RetrievalQAChain to provide a chat history component",
+        "inputParams": [
+          {
+            "label": "Return Source Documents",
+            "name": "returnSourceDocuments",
+            "type": "boolean",
+            "optional": true,
+            "id": "conversationalRetrievalQAChain_0-input-returnSourceDocuments-boolean"
+          },
+          {
+            "label": "Rephrase Prompt",
+            "name": "rephrasePrompt",
+            "type": "string",
+            "description": "Using previous chat history, rephrase question into a standalone question",
+            "warning": "Prompt must include input variables: {chat_history} and {question}",
+            "rows": 4,
+            "additionalParams": true,
+            "optional": true,
+            "default": "Given the following conversation and a follow up question, rephrase the follow up question to be a standalone question.\n\nChat History:\n{chat_history}\nFollow Up Input: {question}\nStandalone Question:",
+            "id": "conversationalRetrievalQAChain_0-input-rephrasePrompt-string"
+          },
+          {
+            "label": "Response Prompt",
+            "name": "responsePrompt",
+            "type": "string",
+            "description": "Taking the rephrased question, search for answer from the provided context",
+            "warning": "Prompt must include input variable: {context}",
+            "rows": 4,
+            "additionalParams": true,
+            "optional": true,
+            "default": "I want you to act as a document that I am having a conversation with. Your name is \"AI Assistant\". Using the provided context, answer the user's question to the best of your ability using the resources provided.\nIf there is nothing in the context relevant to the question at hand, just say \"Hmm, I'm not sure\" and stop after that. Refuse to answer any question not about the info. Never break character.\n------------\n{context}\n------------\nREMEMBER: If there is no relevant information within the context, just say \"Hmm, I'm not sure\". Don't try to make up an answer. Never break character.",
+            "id": "conversationalRetrievalQAChain_0-input-responsePrompt-string"
+          }
+        ],
+        "inputAnchors": [
+          {
+            "label": "Chat Model",
+            "name": "model",
+            "type": "BaseChatModel",
+            "id": "conversationalRetrievalQAChain_0-input-model-BaseChatModel"
+          },
+          {
+            "label": "Vector Store Retriever",
+            "name": "vectorStoreRetriever",
+            "type": "BaseRetriever",
+            "id": "conversationalRetrievalQAChain_0-input-vectorStoreRetriever-BaseRetriever"
+          },
+          {
+            "label": "Memory",
+            "name": "memory",
+            "type": "BaseMemory",
+            "optional": true,
+            "description": "If left empty, a default BufferMemory will be used",
+            "id": "conversationalRetrievalQAChain_0-input-memory-BaseMemory"
+          },
+          {
+            "label": "Input Moderation",
+            "description": "Detect text that could generate harmful output and prevent it from being sent to the language model",
+            "name": "inputModeration",
+            "type": "Moderation",
+            "optional": true,
+            "list": true,
+            "id": "conversationalRetrievalQAChain_0-input-inputModeration-Moderation"
+          }
+        ],
+        "inputs": {
+          "model": "{{awsChatBedrock_0.data.instance}}",
+          "vectorStoreRetriever": "{{awsBedrockKBRetriever_0.data.instance}}",
+          "memory": "{{bufferMemory_0.data.instance}}",
+          "returnSourceDocuments": "",
+          "rephrasePrompt": "**Reformule a consulta do usuário, unindo o conhecimento da base interna sobre processos seletivos e boas práticas de RH, com o conhecimento geral sobre entrevistas e recrutamento da LLM. Foque em fornecer orientações claras e práticas para candidatos a processos seletivos.**\n\n- Utilize o histórico da conversa para manter o contexto e a relevância.\n- Priorize as melhores práticas da empresa, complementando com conselhos gerais sobre entrevistas e recrutamento.\n\n**Histórico da conversa atual para contexto:** {chat_history}\n\n**Pergunta original do usuário:** {question}\n\nReformule a pergunta mantendo-a focada em boas práticas para processos seletivos, buscando oferecer conselhos que ajudem na aprovação.",
+          "responsePrompt": "Você é o 'Assistente de RH da Empresa V4 Company', um especialista em processos seletivos e boas práticas de RH. Seu objetivo é fornecer conselhos e orientações para ajudar candidatos a terem sucesso em processos seletivos, combinando o conhecimento interno da empresa com as melhores práticas gerais em recrutamento e seleção.\n\n**Regras para Responder:**\n- Responda em português, de forma clara e objetiva.\n- Una as informações da base de conhecimento interna com insights da LLM.\n- Foque em fornecer conselhos práticos, dicas de entrevistas, estratégias para currículo, e recomendações para melhorar a preparação para processos seletivos.\n\n**Contexto atual:** {context}\n\n**Pergunta reformulada para contexto de RH e processos seletivos:** {question}\n\nElabore uma resposta detalhada e prática para ajudar o usuário a ter sucesso em processos seletivos, utilizando informações específicas da base de conhecimento e insights gerais da LLM para enriquecer o conselho, mantendo sempre o foco nas melhores práticas de RH.",
+          "inputModeration": ""
+        },
+        "outputAnchors": [
+          {
+            "id": "conversationalRetrievalQAChain_0-output-conversationalRetrievalQAChain-ConversationalRetrievalQAChain|BaseChain|Runnable",
+            "name": "conversationalRetrievalQAChain",
+            "label": "ConversationalRetrievalQAChain",
+            "description": "Document QA - built on RetrievalQAChain to provide a chat history component",
+            "type": "ConversationalRetrievalQAChain | BaseChain | Runnable"
+          }
+        ],
+        "outputs": {},
+        "selected": false
+      },
+      "width": 300,
+      "height": 532,
+      "selected": false,
+      "dragging": false,
+      "positionAbsolute": {
+        "x": 859.8917386494259,
+        "y": 497.5288536977462
+      }
+    },
+    {
+      "id": "bufferMemory_0",
+      "position": {
+        "x": 336.1923885163735,
+        "y": 1016.0354665509453
+      },
+      "type": "customNode",
+      "data": {
+        "id": "bufferMemory_0",
+        "label": "Buffer Memory",
+        "version": 2,
+        "name": "bufferMemory",
+        "type": "BufferMemory",
+        "baseClasses": [
+          "BufferMemory",
+          "BaseChatMemory",
+          "BaseMemory"
+        ],
+        "category": "Memory",
+        "description": "Retrieve chat messages stored in database",
+        "inputParams": [
+          {
+            "label": "Session Id",
+            "name": "sessionId",
+            "type": "string",
+            "description": "If not specified, a random id will be used. Learn <a target=\"_blank\" href=\"https://docs.flowiseai.com/memory#ui-and-embedded-chat\">more</a>",
+            "default": "",
+            "additionalParams": true,
+            "optional": true,
+            "id": "bufferMemory_0-input-sessionId-string"
+          },
+          {
+            "label": "Memory Key",
+            "name": "memoryKey",
+            "type": "string",
+            "default": "chat_history",
+            "additionalParams": true,
+            "id": "bufferMemory_0-input-memoryKey-string"
+          }
+        ],
+        "inputAnchors": [],
+        "inputs": {
+          "sessionId": "",
+          "memoryKey": "chat_history"
+        },
+        "outputAnchors": [
+          {
+            "id": "bufferMemory_0-output-bufferMemory-BufferMemory|BaseChatMemory|BaseMemory",
+            "name": "bufferMemory",
+            "label": "BufferMemory",
+            "description": "Retrieve chat messages stored in database",
+            "type": "BufferMemory | BaseChatMemory | BaseMemory"
+          }
+        ],
+        "outputs": {},
+        "selected": false
+      },
+      "width": 300,
+      "height": 253,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 336.1923885163735,
+        "y": 1016.0354665509453
+      },
+      "dragging": false
+    }
+  ],
+  "edges": [
+    {
+      "source": "awsBedrockKBRetriever_0",
+      "sourceHandle": "awsBedrockKBRetriever_0-output-awsBedrockKBRetriever-AWSBedrockKBRetriever|BaseRetriever",
+      "target": "conversationalRetrievalQAChain_0",
+      "targetHandle": "conversationalRetrievalQAChain_0-input-vectorStoreRetriever-BaseRetriever",
+      "type": "buttonedge",
+      "id": "awsBedrockKBRetriever_0-awsBedrockKBRetriever_0-output-awsBedrockKBRetriever-AWSBedrockKBRetriever|BaseRetriever-conversationalRetrievalQAChain_0-conversationalRetrievalQAChain_0-input-vectorStoreRetriever-BaseRetriever"
+    },
+    {
+      "source": "awsChatBedrock_0",
+      "sourceHandle": "awsChatBedrock_0-output-awsChatBedrock-AWSChatBedrock|BedrockChat|BedrockChat|BaseChatModel|BaseLanguageModel|Runnable",
+      "target": "conversationalRetrievalQAChain_0",
+      "targetHandle": "conversationalRetrievalQAChain_0-input-model-BaseChatModel",
+      "type": "buttonedge",
+      "id": "awsChatBedrock_0-awsChatBedrock_0-output-awsChatBedrock-AWSChatBedrock|BedrockChat|BedrockChat|BaseChatModel|BaseLanguageModel|Runnable-conversationalRetrievalQAChain_0-conversationalRetrievalQAChain_0-input-model-BaseChatModel"
+    },
+    {
+      "source": "bufferMemory_0",
+      "sourceHandle": "bufferMemory_0-output-bufferMemory-BufferMemory|BaseChatMemory|BaseMemory",
+      "target": "conversationalRetrievalQAChain_0",
+      "targetHandle": "conversationalRetrievalQAChain_0-input-memory-BaseMemory",
+      "type": "buttonedge",
+      "id": "bufferMemory_0-bufferMemory_0-output-bufferMemory-BufferMemory|BaseChatMemory|BaseMemory-conversationalRetrievalQAChain_0-conversationalRetrievalQAChain_0-input-memory-BaseMemory"
+    }
+  ]
+}

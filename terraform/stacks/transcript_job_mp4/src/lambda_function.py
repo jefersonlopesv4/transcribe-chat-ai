@@ -3,8 +3,6 @@ import os
 import json
 import uuid
 
-
-
 def lambda_handler(event, context):
     s3_client = boto3.client('s3')
     transcribe_client = boto3.client('transcribe')

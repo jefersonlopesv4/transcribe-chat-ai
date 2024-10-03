@@ -25,7 +25,7 @@ locals {
   log_retention_in_days = 1
   enable_lambda_version = true
   env_variables = {
-    "OUTPUT_BUCKET" : "${local.environment}-knowledge-base-bucket-sales-method"
+    "OUTPUT_BUCKET" : "${local.environment}-knowledge-base-bucket-chat-ia"
   }
 
   default_tags = {

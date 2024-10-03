@@ -30,11 +30,9 @@ def save_transcript_to_s3(bucket_name, transcript):
     s3_client = boto3.client('s3')
     
     try:
-        # Gerar um nome de arquivo único baseado na data e hora atual
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         file_key = f"transcript_{timestamp}.txt"
         
-        # Salvar o transcript no novo bucket
         s3_client.put_object(Bucket=bucket_name, Key=file_key, Body=transcript)
         
         print(f"Transcript salvo com sucesso em {bucket_name}/{file_key}")
@@ -53,7 +51,6 @@ def lambda_handler(event, context):
         
         transcript  = get_transcript_from_s3(bucket,key)
         if transcript:
-            # Salvar o transcript no novo bucket
             saved_file_key = save_transcript_to_s3(os.environ['OUTPUT_BUCKET'], transcript)
             if saved_file_key:
                 print(f"Processo concluído. Arquivo salvo: {saved_file_key}")
